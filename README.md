@@ -92,18 +92,11 @@ For this task, we employed Python and the following third part libraries to help
 * Matplotlib & Seaborn - Data Visualization
 * PulP - Provides a modeling framework and LP optimization tool
 
-We have collected information on the nutritional value of five meals that are easily available online. These meals are Kraft Mac & Cheese, Amy's Thai Pad Thai, Fresh Express Chopped Caesar Salad Kit, Spinach Scramble, Salmon, Rice, and Broccoli. To ensure that all the necessary nutrients are covered, we have also included milk as a sixth meal option to be consumed during the day, since it is cheap and provides calcium, vitamin D, and potassium (Dietary Guidelines for Americans 2020). We chose pre-packaged and easy-to-prepare meals that require no more than five ingredients or have ingredients readily available in the package. We obtained the prices and nutritional information from Mariano's website (2024), and Table 02 summarizes this information along with the pre-packaged meal prices or the pro-rated cost per meal. The prices do not include any costs associated with food preparation, such as utility costs or labor. For the recipes that required preparation, we calculate the prorated costs and nutritional content based on the key ingredients based on the recipes from online websites. On the repository of this assignment one can find the nutritional values on a table, files containing the nutrition information and prices from Mariano’s website.
 
-**Table 02: Nutrition facts and prices for the meal options per serving.**
+![Network][Network]
+**Figure 01: directed graph diagram for the project.**
 
-| Food Item (meal)                       |   Price ($) |   Energy (calories) |   Sodium (mg) |   Protein (g) |   Vitamin D (mcg) |   Calcium (mg) |   Iron (mg) |   Potassium (mg) |
-|:---------------------------------------|------------:|--------------------:|--------------:|--------------:|------------------:|---------------:|------------:|-----------------:|
-| Kraft Mac & Cheese                     |        0.46 |              250    |        560    |          9    |               0   |         110    |        2.5  |           330    |
-| Amy's Thai Pad Thai                    |        6.79 |              410    |        760    |         12    |               0   |          90    |        3.9  |           360    |
-| Fresh Express Chopped Caesar Salad Kit |        1.8  |              160    |        310    |          3    |               0   |          90    |        0.9  |           190    |
-| Spinach Scramble                       |        1.16 |              161.67 |        458.17 |         13.08 |               2   |          86.68 |        2.65 |           351.42 |
-| Salmon, Rice, and Broccolis            |        3.83 |              322.5  |        549.25 |         27.5  |              12.3 |          40.75 |        1.15 |           618.5  |
-| Fat Free Skim Milk                     |        0.46 |               80    |        120    |          8    |             100   |         300    |        0    |           390    |
+
 
 We optimized the problem using three different sets of constraints. These are the models we used:
 
@@ -186,4 +179,5 @@ Based on Model 01, the optimal solution suggests that a diet with less variety, 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/hconsolo
-[Gannt_001_expected]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_01_gannt_chart.jpg
+[Network]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_00_network.png
+[Gannt_001_expected]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_01_gannt_chart.png
