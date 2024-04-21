@@ -12,19 +12,19 @@ Print the results
 Critical Path time:
 A starts at time 0
 B starts at time 0
-H ends at 677.5 hours in duration
-Or, H ends at 84.6875 work days duration
+H ends at 598.0 hours in duration
+Or, H ends at 74.75 work days duration
 
 Problem full formulation
 Critical_Path_worstCaseHours:
 MINIMIZE
 1*end_A + 1*end_B + 1*end_C + 1*end_D + 1*end_D1 + 1*end_D2 + 1*end_D3 + 1*end_D4.0 + 1*end_D4.1 + 1*end_D4.2 + 1*end_D4.3 + 1*end_D4.4 + 1*end_D4.5 + 1*end_D5 + 1*end_D6 + 1*end_D7 + 1*end_D8 + 1*end_E + 1*end_F + 1*end_G + 1*end_H + 0
 SUBJECT TO
-A_duration: end_A - start_A = 20
+A_duration: end_A - start_A = 22
 
-B_duration: end_B - start_B = 40
+B_duration: end_B - start_B = 44
 
-C_duration: end_C - start_C = 20
+C_duration: end_C - start_C = 22
 
 C_predecessor_A: - end_A + start_C >= 0
 
@@ -54,7 +54,7 @@ D4.1_duration: end_D4.1 - start_D4.1 = 300
 
 D4.1_predecessor_D4.0: - end_D4.0 + start_D4.1 >= 0
 
-D4.2_duration: end_D4.2 - start_D4.2 = 180
+D4.2_duration: end_D4.2 - start_D4.2 = 200
 
 D4.2_predecessor_D4.0: - end_D4.0 + start_D4.2 >= 0
 
@@ -62,7 +62,7 @@ D4.3_duration: end_D4.3 - start_D4.3 = 120
 
 D4.3_predecessor_D4.0: - end_D4.0 + start_D4.3 >= 0
 
-D4.4_duration: end_D4.4 - start_D4.4 = 160
+D4.4_duration: end_D4.4 - start_D4.4 = 180
 
 D4.4_predecessor_D4.0: - end_D4.0 + start_D4.4 >= 0
 
@@ -76,43 +76,43 @@ D4.5_predecessor_D4.3: - end_D4.3 + start_D4.5 >= 0
 
 D4.5_predecessor_D4.4: - end_D4.4 + start_D4.5 >= 0
 
-D5_duration: end_D5 - start_D5 = 20
+D5_duration: end_D5 - start_D5 = 22
 
 D5_predecessor_D4.5: - end_D4.5 + start_D5 >= 0
 
-D6_duration: end_D6 - start_D6 = 80
+D6_duration: end_D6 - start_D6 = 50
 
 D6_predecessor_D5: - end_D5 + start_D6 >= 0
 
-D7_duration: end_D7 - start_D7 = 80
+D7_duration: end_D7 - start_D7 = 50
 
 D7_predecessor_D6: - end_D6 + start_D7 >= 0
 
-D8_duration: end_D8 - start_D8 = 30
+D8_duration: end_D8 - start_D8 = 22
 
 D8_predecessor_D5: - end_D5 + start_D8 >= 0
 
 D8_predecessor_D7: - end_D7 + start_D8 >= 0
 
-E_duration: end_E - start_E = 45
+E_duration: end_E - start_E = 32
 
 E_predecessor_B: - end_B + start_E >= 0
 
 E_predecessor_C: - end_C + start_E >= 0
 
-F_duration: end_F - start_F = 22.5
+F_duration: end_F - start_F = 17
 
 F_predecessor_D8: - end_D8 + start_F >= 0
 
 F_predecessor_E: - end_E + start_F >= 0
 
-G_duration: end_G - start_G = 45
+G_duration: end_G - start_G = 32
 
 G_predecessor_A: - end_A + start_G >= 0
 
 G_predecessor_D8: - end_D8 + start_G >= 0
 
-H_duration: end_H - start_H = 22.5
+H_duration: end_H - start_H = 20
 
 H_predecessor_F: - end_F + start_H >= 0
 
