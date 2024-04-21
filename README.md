@@ -69,29 +69,18 @@ We will use the following tools to develop the app:
 - Data scientist: Go, Python, or R for recommender system analytics on the backend, with persistent storage provided by PostgreSQL, EdgeDB, or PocketBase
 - Data engineering aspect of our project, a critical component, will be hosted on a major cloud platform such as Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP). This strategic decision ensures the scalability and reliability of our project, instilling confidence in its success.
 
-The project plan for the restaurant recommendation application has been updated to include potential features and technical requirements. Our app will offer a range of unique features, such as browsing menus, online ordering, table reservations, loyalty programs, push notifications, reviews, and social sharing. Additionally, the app will be integrated with other platforms and will use an advanced machine-learning recommendation engine to provide personalized recommendations. It will store user preferences and order history, and restaurant owners will be able to post marketing content. The app will also store information on over 100 and less than 1000 restaurants in Marlborough. It will be scalable to accommodate potential increases in operations and support up to 1000 users. External data will consist of monthly updated Yelp reviews accessed using GraphQL API. A detailed list of these features and requirements, along with the associated development time required by a professional, is provided in the table 01.
+The project plan for the restaurant recommendation application has been updated to include potential features and technical requirements. Our app will offer a range of unique features, such as browsing menus, online ordering, table reservations, loyalty programs, push notifications, reviews, and social sharing. Additionally, the app will be integrated with other platforms and will use an advanced machine-learning recommendation engine to provide personalized recommendations. It will store user preferences and order history, and restaurant owners will be able to post marketing content. The app will also store information on over 100 and less than 1000 restaurants in Marlborough. It will be scalable to accommodate potential increases in operations and support up to 1000 users. External data will consist of monthly updated Yelp reviews accessed using GraphQL API. A detailed list of these features and requirements, along with the associated development time required by a professional, is provided in the table 01. Details are included in the Table 05 in the Appedix. The client (group of restaurants from Marlborough MA) will ultimately decide the complete list of features and this is an initial reference for this exercise.
 
-**Table 01: Daily nutrient constraints for the diet problem together with important food items to consider.**
+**Table 01: Summary of the expected effort (in hours) to develop the code of each design feature (ID starting with F) and technical feacture (ID starting with T).**
 
-| Design_ID   | Design_Description               | Details                                                                                                                                                                                                                                                                                           |
-|:------------|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| F01         | Desktop and mobile version       | users can access the application on their computers or mobile devices.develop a user friendly and aesthetic website for desktop and mobile                                                                                                                                                        |
-| F02         | Menu browsing                    | users can view the restaurant's menu and make selections per restaurant.                                                                                                                                                                                                                          |
-| F04         | Reservations                     | users can reserve a table at the restaurant or order for pickup.                                                                                                                                                                                                                                  |
-| F05         | Loyalty program                  | users can earn points or rewards for repeat business.                                                                                                                                                                                                                                             |
-| F06         | Push notifications               | restaurants can send notifications to users, such as special promotions or discounts, using recommendation system.                                                                                                                                                                                |
-| F07         | Reviews and ratings              | users can rate their dining experience and read reviews from other customers.                                                                                                                                                                                                                     |
-| F08         | Social sharing                   | users can share their dining experience on social media platforms.                                                                                                                                                                                                                                |
-| F10         | Integration with other platforms | users can order food from the restaurant app through platforms like Google Maps and Yelp.                                                                                                                                                                                                         |
-| F11         | ML recommendation                | Our advanced machine learning recommendation engine analyzes multiple data sources, including Yelp, previous orders, current GPS position of the user, and deals, to provide personalized recommendations. This feature enhances the user experience and sets our app apart from the competition. |
-| F12         | ML sentiment analysis            | Our app provides sentiment analysis to restaurants based on Yelp reviews, highlighting their main strengths and weaknesses.                                                                                                                                                                       |
-| F13         | Marketing content                | Restaurant owners can post marketing content and maintain a blog through our app. Additionally, our app stores users' order history and preferences for future reference.                                                                                                                         |
-| T01         | Size of restaurants DB           | The application should have the capability to store information of more than one hundred and less than one thousand restaurants located in Marlborough, Massachusetts.                                                                                                                            |
-| T02         | Scalability                      | The application should be scalable enough to handle potential increases in the size of operations.                                                                                                                                                                                                |
-| T03         | Size of users DB                 | The number of users should be 1,000 or 0.06% of the population living in Marlborough and its cities in the vicinity, which includes six municipalities Berlin, Hudson, Sudbury, Framingham, Southborough, and Northborough.                                                                       |
-| T04         | ELT external data - Yelp         | External data for the project will consist of Yelp reviews of these restaurants. This list of restaurants should be updated monthly, with Yelp reviews updated daily to be accessed using GraphQL API.                                                                                            |
-| T05         | Site Infrastructure              | Hosted site on a major cloud platform, run batch jobs, and ML algorithms periodically.                                                                                                                                                                                                            |
-| T06         | Monitoring system                | Store activity log, and trigger alerts when events happen                          
+| Role              |   Effort | Design_ID                                                       |
+|:------------------|---------:|:----------------------------------------------------------------|
+| Backend Developer  |      180 | F01, F02, F04, F05, F06, F07, F08, F10, F11, F12, F13, T05, T06 |
+| Data Engineer      |      160 | F11, F12, T01, T02, T03, T04, T05, T06                          |
+| Frontend Developer |      150 | F01, F02, F04, F05, F06, F07, F08, F10, F13                     |
+| Data Scientist     |       80 | F11, F12                                                        |
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,49 +113,7 @@ We optimized the problem using three different sets of constraints. These are th
 
 To convert this problem to the standard form, we used simple mathematical transformations to convert the minimization problem into a maximization problem as per Camarena (2024). Below is the standard formulation of the problem.
 
-```{python}
-\* Diet_Problem_Standard *\
-Maximize
-OBJ: - 6.79 Amy's_Thai_Pad_Thai - 0.463333333333 Fat_Free_Skim_Milk
- - 1.796 Fresh_Express_Chopped_Caesar_Salad_Kit
- - 0.463333333333 Kraft_Mac_&_Cheese
- - 3.8313953666 Salmon,_Rice,_and_Broccolis - 1.16026357773 Spinach_Scramble
-Subject To
-Calcium_(mg): - 90 Amy's_Thai_Pad_Thai - 300 Fat_Free_Skim_Milk
- - 90 Fresh_Express_Chopped_Caesar_Salad_Kit - 110 Kraft_Mac_&_Cheese
- - 40.75 Salmon,_Rice,_and_Broccolis - 86.6752916667 Spinach_Scramble <= 9100
-Energy_(kcal): - 410 Amy's_Thai_Pad_Thai - 80 Fat_Free_Skim_Milk
- - 160 Fresh_Express_Chopped_Caesar_Salad_Kit - 250 Kraft_Mac_&_Cheese
- - 322.5 Salmon,_Rice,_and_Broccolis - 161.666666667 Spinach_Scramble <= 14000
-Iron_(mg): - 3.9 Amy's_Thai_Pad_Thai
- - 0.9 Fresh_Express_Chopped_Caesar_Salad_Kit - 2.5 Kraft_Mac_&_Cheese
- - 1.15 Salmon,_Rice,_and_Broccolis - 2.64541666667 Spinach_Scramble <= 126
-Potassium_(mg): - 360 Amy's_Thai_Pad_Thai - 390 Fat_Free_Skim_Milk
- - 190 Fresh_Express_Chopped_Caesar_Salad_Kit - 330 Kraft_Mac_&_Cheese
- - 618.5 Salmon,_Rice,_and_Broccolis - 351.416666667 Spinach_Scramble <= 32900
-Protein_(g): - 12 Amy's_Thai_Pad_Thai - 8 Fat_Free_Skim_Milk
- - 3 Fresh_Express_Chopped_Caesar_Salad_Kit - 9 Kraft_Mac_&_Cheese
- - 27.5 Salmon,_Rice,_and_Broccolis - 13.0791666667 Spinach_Scramble <= 350
-Sodium_(mg): - 760 Amy's_Thai_Pad_Thai - 120 Fat_Free_Skim_Milk
- - 310 Fresh_Express_Chopped_Caesar_Salad_Kit - 560 Kraft_Mac_&_Cheese
- - 549.25 Salmon,_Rice,_and_Broccolis - 458.166666667 Spinach_Scramble
- <= 35000
-Vitamin_D_(mcg): - 100 Fat_Free_Skim_Milk - 12.3 Salmon,_Rice,_and_Broccolis
- - 2 Spinach_Scramble <= 140
-_C1: - Amy's_Thai_Pad_Thai <= -1
-_C10: Kraft_Mac_&_Cheese <= 28
-_C11: Salmon,_Rice,_and_Broccolis <= 28
-_C12: Spinach_Scramble <= 28
-_C2: - Fat_Free_Skim_Milk <= -1
-_C3: - Fresh_Express_Chopped_Caesar_Salad_Kit <= -1
-_C4: - Kraft_Mac_&_Cheese <= -1
-_C5: - Salmon,_Rice,_and_Broccolis <= -1
-_C6: - Spinach_Scramble <= -1
-_C7: Amy's_Thai_Pad_Thai <= 28
-_C8: Fat_Free_Skim_Milk <= 28
-_C9: Fresh_Express_Chopped_Caesar_Salad_Kit <= 28
-End
-```
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -182,7 +129,7 @@ We employed the optimization simplex algorithm with PulP to devise a dietary mod
 
 Moreover, when we stipulated the condition of having at least one meal per food item, the cost rose by almost 12 dollars. Once again, the simplex solution selected milk and Kraft Mac and Cheese, with one serving for the other meals. Shifting to Model 03, we observed that the weekly cost nearly doubled when we aimed to achieve a more diverse diet while maintaining the same nutrient targets. This indicates that a diversified diet can have a significant impact on one's budget. Interestingly, the solution found Salmon with rice and broccoli more attractive than Amy's Thai Pad Thai and Fresh Express Chopped Caesar Salad Kit. This suggests that preparing our meals is better than buying ready-to-heat frozen food or ready-to-eat meal kits.
 
-![Total Cost](https://github.com/Hconsolo/MSDS460-Assignment_01_/blob/main/002.%20Pictures%20Paper/total_cost.png)
+![Gannt 01. Expected project tasks](https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_01_gannt_chart.html)
 
 **Figure 02: Optimal weekly cost for all consumed food item (meal).**
 
@@ -209,6 +156,31 @@ Based on Model 01, the optimal solution suggests that a diet with less variety, 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Appendix
+
+### Reference for the design features
+
+**Table 05: Details of the design features to be developed**
+
+| Design_ID   | Design_Description               | Details                                                                                                                                                         |
+|:------------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| F01         | Desktop and mobile version       | Users can access the app on desktop or mobile. Build an attractive and easy-to-use website for both.                                                            |
+| F02         | Menu browsing                    | Users can view the restaurant's menu and make selections per restaurant.                                                                                        |
+| F04         | Reservations                     | Users can reserve a table at the restaurant or order for pickup.                                                                                                |
+| F05         | Loyalty program                  | Users can earn points or rewards for repeat business.                                                                                                           |
+| F06         | Push notifications               | Restaurants can send notifications to users, such as special promotions or discounts, using recommendation system.                                              |
+| F07         | Reviews and ratings              | Users can rate their dining experience and read reviews from other customers.                                                                                   |
+| F08         | Social sharing                   | Users can share their dining experience on social media platforms.                                                                                              |
+| F10         | Integration with other platforms | Users can order food from the restaurant app through platforms like Google Maps and Yelp.                                                                       |
+| F11         | ML recommendation                | ML recommendation tool personalized suggestion engine that uses Yelp, order history, GPS, and deals data.                                                       |
+| F12         | ML sentiment analysis            | Our app provides sentiment analysis to restaurants based on Yelp reviews, highlighting their main strengths and weaknesses.                                     |
+| F13         | Marketing content                | Our app lets restaurant owners post marketing content and maintain a blog. It also stores users' order history and preferences.                                 |
+| T01         | Size of restaurants DB           | The app must store info for 100-1000 Marlborough, MA restaurants.                                                                                               |
+| T02         | Scalability                      | The application should be scalable enough to handle potential increases in the size of operations.                                                              |
+| T03         | Size of users DB                 | Users should be 1,000 or 0.06% of the population in Marlborough and its neighboring towns: Berlin, Hudson, Sudbury, Framingham, Southborough, and Northborough. |
+| T04         | ELT external data - Yelp         | The project will use Yelp reviews of restaurants as external data, which will be updated monthly. The Yelp reviews will be accessed daily via GraphQL API.      |
+| T05         | Site Infrastructure              | Hosted site on a major cloud platform, run batch jobs, and ML algorithms periodically.                                                                          |
+| T06         | Monitoring system                | Store activity log, and trigger alerts when events happen                           
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
