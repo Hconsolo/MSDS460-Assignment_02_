@@ -1,10 +1,3 @@
-# MSDS460-Assignment_02_
-Network Models---Project Management (Spring 2024)
-
-
-# MSDS460-Assignment_02_
-Network Models---Project Management (Spring 2024)
-
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
@@ -21,14 +14,14 @@ Network Models---Project Management (Spring 2024)
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Hconsolo/MSDS460-Assignment_01_">
-    <img src="002. Pictures Paper/Northwestern_Wildcats_logo.svg" alt="Logo" width="80" height="80">
+  <a href=![Northwestern-logo]>
+    <img src=![Northwestern-logo] alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Northwestern University</h3>
   <h3 align="center">MSDS 460-DL : Decision Analytics</h3>
-  <h3 align="center">ASSIGNMENT 1: Linear Programming Example</h3>
-  <h4 align="center">The Diet Problem Revisited (Spring 2024)</h4>
-  <h4 align="center">April 16, 2023</h4>
+  <h3 align="center">ASSIGNMENT 2: Network Models</h3>
+  <h4 align="center">The Project Management (Spring 2024)</h4>
+  <h4 align="center">April 21, 2023</h4>
   <h4 align="center">Humberto Consolo Holanda</h4>
 
 </div>
@@ -63,13 +56,35 @@ This assignment will cover the application of linear programming, a mathematical
 
 Our project will use Yelp data of restaurants located in Marlborough, Massachusetts, to build an app that directed to the population of Marlborough and nearby cities, including Berlin, Hudson, Sudbury, Framingham, Southborough, and Northborough, totaling about 173 thousand people. We will update the list of restaurants monthly, while Yelp reviews, the lifeblood of our app, will be updated daily. To access large quantities of Yelp data, we will secure a contract with GraphQL API, underscoring the importance of this data source in our project.
 
-We will use the following tools to develop the app:
+We will use the following technical professional and tools to develop the app:
 - Front-end development: Alpine.js and Tailwind
 - Backend: GraphQL API and a Go web and database server
 - Data scientist: Go, Python, or R for recommender system analytics on the backend, with persistent storage provided by PostgreSQL, EdgeDB, or PocketBase
 - Data engineering aspect of our project, a critical component, will be hosted on a major cloud platform such as Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP). This strategic decision ensures the scalability and reliability of our project, instilling confidence in its success.
 
-The project plan for the restaurant recommendation application has been updated to include potential features and technical requirements. Our app will offer a range of unique features, such as browsing menus, online ordering, table reservations, loyalty programs, push notifications, reviews, and social sharing. Additionally, the app will be integrated with other platforms and will use an advanced machine-learning recommendation engine to provide personalized recommendations. It will store user preferences and order history, and restaurant owners will be able to post marketing content. The app will also store information on over 100 and less than 1000 restaurants in Marlborough. It will be scalable to accommodate potential increases in operations and support up to 1000 users. External data will consist of monthly updated Yelp reviews accessed using GraphQL API. A detailed list of these features and requirements, along with the associated development time required by a professional, is provided in the table 01. Details are included in the Table 05 in the Appedix. The client (group of restaurants from Marlborough MA) will ultimately decide the complete list of features and this is an initial reference for this exercise.
+A project mananager will manage the end-to-end planning, marketing, pricing plan, and work . All the professional are independent contractor, meaning that if they are not working directly with the project.
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Method
+
+For this task, we employed Python and the following third part libraries to help with basic data handling tasks and to solve the the LP problem.
+
+* Pandas - Data Wrangling and Processing
+* Matplotlib, Seaborn - General Data Visualization
+* Plotly.express - Advanced visualization: Gannt Chart and HTML figures rendering
+* Networkx - Graph tool and Network visulization
+* PulP - Provides a modeling framework and LP optimization tool
+
+The first task was to complete the project planning table and adapt it to three app development scenarions. The table contains information in working hours.
+
+1. ***bestCaseHours***: earliest possible duration time for a task
+2. ***expectedHours***: most likely duration time for a task
+3. ***worstCaseHours***: latest estimated duration time for a task
+
+After doing some research based on the scope of work to develop web-based apps, we came up with a proposal of scope of work for each role. Furthremore, it was necessary to create a project plan to narrow down how much effort each technical professional (Front-end developer, Backend developer, Data Scientist, Data Engineer) would incur in terms of hours, especially during code, the most demanding task of the project, which is summarized in table 01.
 
 **Table 01: Summary of the expected effort (in hours) to develop the code of each design feature (ID starting with F) and technical feacture (ID starting with T).**
 
@@ -81,30 +96,11 @@ The project plan for the restaurant recommendation application has been updated 
 | Data Scientist     |       80 | F11, F12                                                        |
 
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Method
-
-For this task, we employed Python and the following third part libraries to help with basic data handling tasks and to solve the the LP problem.
-
-* Pandas - Data Wrangling and Processing
-* Matplotlib & Seaborn - Data Visualization
-* PulP - Provides a modeling framework and LP optimization tool
-
+The project plan for the restaurant recommendation application has been updated to include potential features and technical requirements. Our app will offer a range of unique features, such as browsing menus, online ordering, table reservations, loyalty programs, push notifications, reviews, and social sharing. Additionally, the app will be integrated with other platforms and will use an advanced machine-learning recommendation engine to provide personalized recommendations. It will store user preferences and order history, and restaurant owners will be able to post marketing content. The app will also store information on over 100 and less than 1000 restaurants in Marlborough. It will be scalable to accommodate potential increases in operations and support up to 1000 users. External data will consist of monthly updated Yelp reviews accessed using GraphQL API. A detailed list of these features and requirements, along with the associated development time required by a professional, is provided in the table 01. Details are included in the Table 05 in the Appedix. The client (group of restaurants from Marlborough MA) will ultimately decide the complete list of features and this is an initial reference for this exercise.
 
 ![Network][Network]
 **Figure 01: directed graph diagram for the project.**
 
-
-
-We optimized the problem using three different sets of constraints. These are the models we used:
-
-1. Model 01: Only the constraints listed in Table 01 were used.
-2. Model 02: We used the constraints in Table 01 and added a requirement for at least one serving per week (applicable to all meals).
-3. Model 03: We used the constraints in Table 01, which required at least one serving of meal per week and set a maximum limit of 28 servings per week (to promote a diverse diet).
-
-To convert this problem to the standard form, we used simple mathematical transformations to convert the minimization problem into a maximization problem as per Camarena (2024). Below is the standard formulation of the problem.
 
 
 
@@ -125,6 +121,13 @@ Moreover, when we stipulated the condition of having at least one meal per food 
 ![Gannt 01. Expected project tasks][Gannt_001_expected]
 
 **Figure 02: Optimal weekly cost for all consumed food item (meal).**
+
+
+| Scenario       |   Total Work (days) |   Project Duration (days) |   Total Cost (USD) |
+|:---------------|--------------------:|--------------------------:|-------------------:|
+| bestCaseHours  |             194.25  |                    49.375 |              93240 |
+| expectedHours  |             217.5   |                    55.625 |             104400 |
+| worstCaseHours |             259.875 |                    74.75  |             124740 |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -155,6 +158,9 @@ Based on Model 01, the optimal solution suggests that a diet with less variety, 
 
 **Table 05: Details of the design features to be developed**
 
+<div class="table-wrapper" markdown="block">
+
+
 | Design_ID   | Design_Description               | Details                                                                                                                                                         |
 |:------------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | F01         | Desktop and mobile version       | Users can access the app on desktop or mobile. Build an attractive and easy-to-use website for both.                                                            |
@@ -173,11 +179,19 @@ Based on Model 01, the optimal solution suggests that a diet with less variety, 
 | T03         | Size of users DB                 | Users should be 1,000 or 0.06% of the population in Marlborough and its neighboring towns: Berlin, Hudson, Sudbury, Framingham, Southborough, and Northborough. |
 | T04         | ELT external data - Yelp         | The project will use Yelp reviews of restaurants as external data, which will be updated monthly. The Yelp reviews will be accessed daily via GraphQL API.      |
 | T05         | Site Infrastructure              | Hosted site on a major cloud platform, run batch jobs, and ML algorithms periodically.                                                                          |
-| T06         | Monitoring system                | Store activity log, and trigger alerts when events happen                           
+| T06         | Monitoring system                | Store activity log, and trigger alerts when events happen          
+
+</div>
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[Northwestern-logo]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/001.%20Misc%20Figures/Northwestern_Wildcats_logo.svg
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/hconsolo
 [Network]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_00_network.png
 [Gannt_001_expected]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_01_gannt_chart.png
+[Gannt_001_all_scenarios]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_01_gannt_chart_all_scenarions.png
+[fig_02_project_duration_cost]: https://github.com/Hconsolo/MSDS460-Assignment_02_/blob/main/003.%20Output%20Files/fig_02_project_duration_cost.pngc
