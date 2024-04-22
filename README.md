@@ -59,8 +59,8 @@ This assignment will cover the application of linear programming, a mathematical
 Our project will use Yelp data of restaurants located in Marlborough, Massachusetts, to build an app that directed to the population of Marlborough and nearby cities, including Berlin, Hudson, Sudbury, Framingham, Southborough, and Northborough, totaling about 173 thousand people. We will update the list of restaurants monthly, while Yelp reviews, the lifeblood of our app, will be updated daily. To access large quantities of Yelp data, we will secure a contract with GraphQL API, underscoring the importance of this data source in our project.
 
 We will use the following technical professional and tools to develop the app:
-- Front-end development: Alpine.js and Tailwind
-- Backend: GraphQL API and a Go web and database server
+- Front-end developer: Alpine.js and Tailwind
+- Backend developer: GraphQL API and a Go web and database server
 - Data scientist: Go, Python, or R for recommender system analytics on the backend, with persistent storage provided by PostgreSQL, EdgeDB, or PocketBase
 - Data engineering aspect of our project, a critical component, will be hosted on a major cloud platform such as Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP). This strategic decision ensures the scalability and reliability of our project, instilling confidence in its success.
 
@@ -108,7 +108,6 @@ After breaking down the code activities, we created a network or graph diagram f
 ![Network][Network]
 **Figure 01: directed graph diagram for the project.**
 
-In addition to the code estimate effort, we have conducted research to determine the level of effort required for developing web-based applications, as outlined in Hryshchenko (2024). Our findings suggest that a simple app typically takes 2-4 months of development time. 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -125,6 +124,8 @@ The coding of the application is the most important part of the project and the 
 ![Gannt 02. Comparison of All Scenarios][Gannt_001_all_scenarios]
 
 
+The results of the optimization problem for each scenario are presented in Table 02. Our estimate is consistent with the anticipated timeline for web-based application development as outlined in Hryshchenko (2024). According to our findings, a basic application usually takes 2-3 months to develop and costs around $100,000. Since independent contractors follow a business model, the primary error of the solution is not in the total cost (with a variance of approximately 20% between expected and worst-case scenarios) but in terms of project duration (with a discrepancy of approximately 40% between expected and worst-case scenarios).
+
 **Table 02: The project scenario comparison in terms of effort, project duration, and total costs**
 
 
@@ -139,9 +140,9 @@ The coding of the application is the most important part of the project and the 
 
 ## Conclusion
 
-In this paper, we employed linear programming techniques to analyze a simplified Diet Problem, which is a well-known LP task. To ensure quick convergence of the solution, we took valuable insights from the Dietary Guidelines for Americans (2020). During the exercise, we gathered recipes and nutritional information from the Marianos website to create six meal options. We also included milk in the list of meals due to its high nutrient content, especially for calcium. 
+In this paper, we used linear programming techniques to analyze a simplified project planning, which is a well-known task to determine the critical path. We determined the coding level of effort for each professional (front-end developer, back-end developer, data scientist, and data engineer) based on the expected features of the restaurant recommendation application. We expect that the back-end developer will perform most of the code effort in the best-case and expected scenarios, but the front-end developer will require most of the time to complete the worst-case scenario. According to the LP solution using Pulp, the project duration should take between two to three months, and it should cost roughly $100,000. The most uncertaint aspect of the project is its completion time.
 
-Based on Model 01, the optimal solution suggests that a diet with less variety, consisting of milk and mac and cheese, is the best. As we imposed more restrictions on the problem, the total cost of the solution worsened, which was expected. This indicates that a diversified diet can have a significant impact on one's budget. Our study suggests that preparing our meals is better than buying ready-to-heat frozen food or ready-to-eat meal kits.
+To monetize a restaurant recommendation app or website, we considered various strategies, including a commission-based model where we charge restaurants a commission fee for transactions made through our platform; a subscription model paid by consumers to have access to virtual coupons and special offer premium plans for additional features; advertising revenue generated through targeted ads; premium listings where we charge a fee for premium listing packages for restaurants; sponsored content where we collaborate with restaurants for sponsored content, and machine learning data monetization using curated analysis about the reviews from Yelp, demographics, and other insight data to provide insights to restaurants.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
