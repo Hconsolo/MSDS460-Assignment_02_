@@ -117,10 +117,12 @@ In addition to the code estimate effort, we have conducted research to determine
 
 We applied LP simplex algorithm from Pulp to determine the total duration of the project. The critical path activities were the ones with slack variables equal to 0, meaning that they had to start the earliest possible. Using the results of the problem, we plotted the Gannt chart for each of the scenarios.
 
+![Gannt 01. Expected project tasks][Gannt_001_expected]
+
 The coding of the application is the most important part of the project and the back-end developer's coding is expected to be critical if there are many features to be developed. However, the front-end development could be the most risky part if the restaurants' group has to approve the design proposal. This is shown in Figure 02, which indicates that the Front-End is the key to deliver the project within two months. Therefore, a time-cost trade-off analysis should be conducted, and it may be necessary to hire an additional front-end developer if the project scope is too complex. The scope of data engineers and back-end developers is more predictable, but the front-end development heavily depends on customer feedback.
 
 
-![Gannt 01. Expected project tasks][Gannt_001_expected]
+![Gannt 02. Comparison of All Scenarios][Gannt_001_all_scenarios]
 
 
 **Table 02: The project scenario comparison in terms of effort, project duration, and total costs**
